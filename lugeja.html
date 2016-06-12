@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Security-Policy"content="default-src 'self'">
-  <meta charset="utf-8">
-  <title>Eksam</title>
-</head>
-<body>
-<?php kontrolliIPd(); ?>
-<?php
-if( (isset( $_SESSION["IP"])) && (isset( $_SESSION["teade"])) ){
-  echo "<div>".$_SESSION["teade"]."</div>";
-  echo "<div>".$_SESSION["IP"]."</div>";
-}
-?>
-<div>Lehte külastanud erinevaid IP aadresse:</div>
-<?php
-if(isset( $_SESSION["kylastused"])){
-  echo "<div>".$_SESSION["kylastused"]."</div>";
-  echo "<div>"."Sinu IP on - ".$_SESSION["IP"]."</div>";
-}
-?>
-</body>
+
+  <head>
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+      <link rel="stylesheet" type="text/css" href="kujund.css">
+      <meta charset="utf-8">
+      <title>Eksam</title>
+  </head>
+
+    <body>
+      <?php kontrolliIPd(); ?>
+      <?php
+        if( (isset( $_SESSION["IP"])) && (isset( $_SESSION["teade"])) ){
+          echo "<div>".htmlspecialchars($_SESSION["teade"])."</div>";
+        }
+        ?>
+        <div>Lehte külastanud erinevaid IP aadresse:</div>
+        <?php
+          if(isset( $_SESSION["kylastused"])){
+            echo "<div>".htmlspecialchars($_SESSION["kylastused"])."</div>";
+            echo "<div>"."Sinu IP on - ".htmlspecialchars($_SESSION["IP"])."</div>";
+          }
+          ?>
+    </body>
+
 </html> ﻿

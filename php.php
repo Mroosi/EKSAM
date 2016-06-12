@@ -28,9 +28,9 @@ function kontrolliIPd(){
     if($rida == 0){
             $pane = "INSERT INTO Mroosi_IP (`IP`) VALUES ('$IPsisse')";
             $Sisestus = mysqli_query($connection, $pane);
-            $_SESSION["teade"] = "Sa pole seda lehte enne külastanud, tere tulemast";
+            $_SESSION["teade"] = "Sa pole seda lehte enne külastanud, tere tulemast!";
         }else{
-           $_SESSION["teade"] = "Hea, et tagasi oled";
+           $_SESSION["teade"] = "Hea, et tagasi oled!";
         }
     
     $paringII = "SELECT IP FROM Mroosi_IP";
@@ -40,9 +40,6 @@ function kontrolliIPd(){
     
         mysqli_close($connection);
     }
-
-
-
 require_once('lugeja.html');
 
 ?>
